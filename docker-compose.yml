@@ -1,0 +1,25 @@
+services:
+  moodle:
+    container_name: ${DOCKER_CONTAINER_NAME}
+    image: bitnami/moodle:latest
+    ports:
+      - "${MOODLE_PORT_HTTP}:8080"
+      - "${MOODLE_PORT_HTTPS}:8443"
+    environment:
+      - MOODLE_URL=${MOODLE_URL}
+      - MOODLE_DATABASE_HOST=${MOODLE_DATABASE_HOST}
+      - MOODLE_DATABASE_NAME=${MOODLE_DATABASE_NAME}
+      - MOODLE_DATABASE_USER=${MOODLE_DATABASE_USER}
+      - MOODLE_DATABASE_PASSWORD=${MOODLE_DATABASE_PASSWORD}
+      - MOODLE_USERNAME=${MOODLE_USERNAME}
+      - MOODLE_PASSWORD=${MOODLE_PASSWORD}
+      - MOODLE_LANG=${MOODLE_LANG}
+      - EXTRA_LOCALES="ru_RU.UTF-8 UTF-8"
+      - TZ=${TZ}
+      - ALLOW_EMPTY_PASSWORD=${ALLOW_EMPTY_PASSWORD}
+    volumes:
+      - ./moodledata:/bitnami/moodle
+networks:
+  default:
+    external: true
+    name: "docker-lan"
