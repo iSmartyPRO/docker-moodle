@@ -59,3 +59,7 @@ git clone https://github.com/iSmartyPRO/docker-moodle.git moodle
     ```
 
 Эта инструкция поможет быстро развернуть Moodle в Docker, используя Bitnami образ, который включает все необходимые зависимости для работы платформы.
+
+# Issues
+
+* [Исправление работы с кодировкой кирилицы](fix-locale.md)
